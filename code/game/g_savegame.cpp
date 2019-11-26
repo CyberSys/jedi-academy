@@ -835,7 +835,7 @@ static void WriteGEntities(qboolean qbAutosave)
 				EnumerateFields(savefields_gNPC, (byte *)&npc, 'GNPC', sizeof(npc));
 			}
 
-			if (tempEnt.client == (gclient_t *)-2)	// I know, I know...
+			if (tempEnt.client == (gclient_t *)0xfffffffe)	// I know, I know... and this fixes the 64bit pointer comparison
 			{
 				gclient_t client = *ent->client;	// NOT *tempEnt.client!!
 				EnumerateFields(savefields_gClient, (byte *)&client, 'GCLI', sizeof(client));
